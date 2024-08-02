@@ -47,4 +47,36 @@ export class UserController {
       throw new Error(`Registration Error ${result.status}`);
     }
   }
+
+  //Check Authentication by Token
+  async checkToken(token: string | null, data: RequestAuth): Promise<boolean> {
+    if (!token) {
+      return false;
+    }
+
+    const domain: string = "https://reqres.in/api";
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    const reqOptions: RequestInit = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(data),
+    };
+    const url = `${domain}${this.endpointLogin}`;
+
+    try {
+      const result: Response = await fetch(url, reqOptions);
+
+      if (result.ok) {
+        const responseBodyLogin: ResponseAuth = await result.json();
+        return responseBodyLogin.token === token;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error("Error checking token:", error);
+      return false;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 export interface RequestAuth {
-  email: string;
+  email: string | null;
   password: string;
 }
 export interface ResponseAuth {
