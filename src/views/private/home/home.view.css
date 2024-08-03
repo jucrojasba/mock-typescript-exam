@@ -1,0 +1,8 @@
+.home-container{
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    background: linear-gradient(rgba(255, 255, 255, 0.139), rgba(255, 255, 255, 0.139)),url('../../../assets/images/banner-home.jpg');
+    background-size: cover;
+
+}
