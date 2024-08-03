@@ -4,7 +4,7 @@
   /* Colors */
   --main-color: #001f3f;
   --second-color: #bdc3c7;
-  --third-color: #87ceeb;
+  --third-color: #5391a9;
   --white-color: #ffffff;
 
   /* Spacing */
@@ -50,4 +50,7 @@ p {
 }
 a {
   text-decoration: none;
+}
+ul{
+  list-style: none;
 }

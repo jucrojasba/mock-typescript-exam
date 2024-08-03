@@ -1,0 +1,46 @@
+.upper-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-2) var(--spacing-4);
+    position: relative;
+    top:0;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.234);
+}
+.upper-bar>h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    color: var(--main-color);
+}
+.upper-bar > h1>img{
+    content: url('../../assets/icons/weather-icon.webp');
+    width: 80px;
+    height: 80px;
+}
+.upper-bar>nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upper-bar>nav>ul{
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+    justify-content: center;
+    padding-right: var(--spacing-4);
+}
+
+li{
+    cursor:pointer;
+    color: var(--main-color);
+    transition: color 0.5s;
+
+}
+li:hover{
+    scale:1.02;
+    color: var(--third-color);
+    transition: 0.5s;
+
+}
