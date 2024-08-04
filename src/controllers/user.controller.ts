@@ -79,4 +79,12 @@ export class UserController {
       return false;
     }
   }
+
+  //Controller Logout
+  logout():void{
+    sessionStorage.clear();
+    window.location.reload();
+  }
+
+
 }

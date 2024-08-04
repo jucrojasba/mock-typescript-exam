@@ -31,13 +31,11 @@ export function showModal(message: string) {
 
     $closeButton.onclick = () => {
       $modalContainer.style.display = "none";
-      window.location.reload();
     };
 
     window.onclick = (event) => {
       if (event.target === $modalContainer) {
         $modalContainer.style.display = "none";
-        window.location.reload();
       }
     };
   }
