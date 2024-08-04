@@ -4,6 +4,7 @@ import { createEditButton } from "../../../components/editButton/edit-button.com
 import { loader } from "../../../components/loader/loader.component.ts";
 import { showModal } from "../../../components/modals/modal.component.ts";
 import { navbar } from "../../../components/navbar/navbar.component.ts";
+import { editCity } from "../../../components/update-city/update-city.component.ts";
 import { CitiesController } from "../../../controllers/cities.controllers.ts";
 import { capitalizeFirstLetter } from "../../../helpers/string-helpers.ts";
 import './home.view.css'
@@ -76,7 +77,7 @@ export function homeView() {
       $temperatureContainer.appendChild($temperature);
       $cityCard.appendChild($createdAt);
       $cityCard.appendChild(createDeleteButton(city.info.name));
-      $cityCard.appendChild(createEditButton(city.info.name));
+      $cityCard.appendChild(createEditButton(city.info.name, city.info.country,city.info.reason));
 
       //Content
       $cityName.innerText= `${capitalizeFirstLetter(city.info.name)}`;
@@ -114,5 +115,21 @@ export function homeView() {
     })
     
     //Update City
+    document.querySelectorAll('#edit-button').forEach(button=>{
+      button.addEventListener('click',async()=>{
+        //Tomar parametros para mostrat modal de editar
+        const userCity = capitalizeFirstLetter(`${button.getAttribute('editid')}`);
+        const userCountry=capitalizeFirstLetter(`${button.getAttribute('userCountry')}`);
+        const userReason=capitalizeFirstLetter(`${button.getAttribute('userReason')}`);
+        
+        if(userCity && userCountry && userReason){
+          editCity(userCity,userCountry,userReason);
+          }
+        else{
+          showModal('City was not founded')
+        }
+      })
+    })
+
   }
 }
