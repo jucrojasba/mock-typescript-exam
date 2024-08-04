@@ -32,14 +32,14 @@ export async function Router(): Promise<void> {
     return;
   }
 
-  // Si accede a la ruta principal y hay token
-  if (path === "/" && responseCheckToken) {
+  // Si accede a la ruta principal o a una vista publica y hay token
+  if ((path === "/"|| publicRoute) && responseCheckToken) {
     navigateTo("/home");
     return;
   }
 
   // Manejo de rutas públicas
-  if (publicRoute) {
+  if (publicRoute && !token) {
     publicRoute.view();
     return;
   }
