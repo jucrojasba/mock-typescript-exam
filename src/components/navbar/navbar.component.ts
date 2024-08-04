@@ -1,5 +1,6 @@
 import { UserController } from "../../controllers/user.controller";
 import { navigateTo } from "../../router";
+import { createCity } from "../create-city/create-city.component";
 import { loader } from "../loader/loader.component";
 import './navbar.component.css'
 
@@ -44,7 +45,7 @@ export function navbar():void{
 
     //Create City
     $createCity.addEventListener('click',()=>{
-        alert('Crear una ciudad');
+        createCity();
     })
 
     //Logout

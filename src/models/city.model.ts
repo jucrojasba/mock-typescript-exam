@@ -1,5 +1,4 @@
 export interface ResponseWeather {
-    weather:    Weather[];
     main:       Main;
 }
 
@@ -14,17 +13,10 @@ export interface Main {
     grnd_level: number;
 }
 
-export interface Weather {
-    id:          number;
-    main:        string;
-    description: string;
-    icon:        string;
-}
-
 export interface CreateCity{
     name:string,
     country:string,
-    createdAt:Date,
+    createdAt:string,
     reason:string
 }
 
